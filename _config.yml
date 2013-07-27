@@ -1,0 +1,49 @@
+title:            Polo in the cloud...
+#description:      Personal Blog
+logo:             site-logo.png
+#Comment out url when working locally to resolve base urls correctly
+url:              http://www.teenycloud.com
+
+# Owner/author information
+owner:
+  name:           Polo
+  avatar:         polo.jpg
+  # Social networking links used in footer. Update and remove as you like.
+  twitter:        "P0l_0"
+  # For Google Authorship https://plus.google.com/authorship
+  google_plus:    "http://plus.google.com/109855264068398326847"
+
+# Links to include in top navigation
+# For external links add external: true
+#links:
+#  - title: Blog
+#    url: /blog
+#  - title: About
+#    url: /about
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:    Europe/Paris
+future:      true
+pygments:    true
+markdown:    kramdown
+
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink:   /blog/:year/:month/:day/:title
+relative_permalinks: false
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+  coderay:
+    coderay_line_numbers: 
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less"]

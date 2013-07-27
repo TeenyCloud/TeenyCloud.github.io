@@ -1,0 +1,11 @@
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated fadeInDown" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        <li><i class="icon-cloud"></i> <a href="{{ site.url }}/" title="Home">Home</a></li>
+	        {% for link in site.links %}
+			<li><a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+	        {% endfor %}
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
