@@ -7,7 +7,7 @@ tags: [blog]
 comments: false
 ---
 
-I have just finished to migrate *wwww.teenycloud.com* to [Jekyll](http://http://jekyllrb.com/ "Jekyll").
+I have just finished to migrate *www.teenycloud.com* to [Jekyll](http://jekyllrb.com/ "Jekyll").
 
 ![Old site]({{ site.url }}/images/old-teenycloud.png)
 {: .pull-right}
