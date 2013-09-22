@@ -1,11 +1,21 @@
 <div class="navigation-wrapper">
 	<nav role="navigation" id="site-nav" class="animated fadeInDown" itemscope itemtype="http://schema.org/SiteNavigationElement">
 	    <ul>
-	        <li><i class="icon-cloud"></i> <a href="{{ site.url }}/" title="Home">Home</a></li>
-	        <li><i class="icon-archive"></i> <a href="{{ site.url }}/blog/archive" title="Archive">Archive</a></li>
-	        <li><i class="icon-tags"></i> <a href="{{ site.url }}/blog/tags" title="Tags">Tags</a></li>
-	        <li><i class="icon-rss"></i> <a href="{{ site.url }}/blog/feed.xml" title="Atom/RSS feed">Feed</a></li>
+	        <li><a href="{{ site.url }}/" title="Home"><i class="icon-cloud"></i> Home</a></li>
+	        <li><a href="{{ site.url }}/blog/archive" title="Archive"><i class="icon-archive"></i> Archive</a></li>
+	        <li><a href="{{ site.url }}/blog/tags" title="Tags"><i class="icon-tags"></i> Tags</a></li>
+	        <li><a href="{{ site.url }}/blog/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        {% if site.search %}<li class="dosearch"><i class="icon-search"></i> Search</li>{% endif %}
 	    </ul>
 	</nav>
 </div><!-- /.navigation-wrapper -->
 
+{% include browser-upgrade.html %}
+
+{% if site.search %}<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->{% endif %}
