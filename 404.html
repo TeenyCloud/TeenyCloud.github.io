@@ -13,7 +13,7 @@
 <meta name="twitter:description" content="Oops...">
 <meta name="twitter:creator" content="@P0l_0">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image:src" content="/images/site-logo.png">
+<meta name="twitter:image:src" content="/logo/site.png">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Page Not Found &#8211; TeenyCloud...">
 <meta property="og:description" content="Oops...">
@@ -37,9 +37,7 @@
 <!-- Webfonts -->
 <script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
-<!-- Animations -->
-<link rel="stylesheet" href="/assets/css/animate.css">
+<link rel="stylesheet" href="/assets/css/main.min.css">
 
 <meta http-equiv="cleartype" content="on">
 
@@ -53,15 +51,15 @@
 <link rel="shortcut icon" href="/favicon/favicon.png">
 
 <!-- Apple Touch Icon -->
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-<link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png" />
-<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png" />
-<link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png" />
-<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png" />
-<link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png" />
-<link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png" />
+<link rel="apple-touch-icon" href="/touch-icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="57x57" href="/touch-icons/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/touch-icons/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/touch-icons/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/touch-icons/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/touch-icons/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/touch-icons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/touch-icons/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/touch-icons/apple-touch-icon-152x152.png" />
 
 </head>
 
@@ -69,7 +67,7 @@
 
 <!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
 <div class="navigation-wrapper">
-	<nav role="navigation" id="site-nav" class="animated fadeInDown" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
 	    <ul>
 	        <li><a href="/" title="Home"><i class="icon-cloud"></i> Home</a></li>
 	        
@@ -121,8 +119,7 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/assets/js/main.min.js"></script>
-<script src="/assets/js/simpleJekyllSearch.js"></script>
+<script src="/assets/js/scripts.min.js"></script>
 
 <!-- Jekyll Simple Search option -->
 <script>
@@ -154,7 +151,7 @@
     
       bs.close.on('click', function() {
         $('.search-wrapper').removeAttr( 'style' );
-        bs.searchform.toggleClass('active');
+        bs.searchform.removeClass('active');
         bs.canvas.removeClass('search-overlay');
     });
   })( jQuery, window );

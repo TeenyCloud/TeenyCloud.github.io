@@ -1,6 +1,6 @@
 title:            TeenyCloud...
 #description:      Personal Blog
-logo:             site-logo.png
+logo:             site.png
 search:           true
 #Comment out url when working locally to resolve base urls correctly
 url:              http://www.teenycloud.com
@@ -8,7 +8,6 @@ url:              http://www.teenycloud.com
 # Owner/author information
 owner:
   name:           Polo
-  avatar:         Polo.jpg
   gravatar:       "http://www.gravatar.com/avatar/8047cb697139d90c9793f05ae588cc62.jpg?s=150"
   # Social networking links used in footer. Update and remove as you like.
   twitter:        "P0l_0"
@@ -48,4 +47,4 @@ kramdown:
     coderay_css: class
 
 include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "Gruntfile.js", "package.json", "node_modules", "Gemfile"]
