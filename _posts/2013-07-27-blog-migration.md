@@ -4,6 +4,7 @@ title: Site Migrated
 description: "Migration of the site to Jekyll"
 category: blog
 tags: [blog]
+modified: 2013-10-10
 comments: false
 ---
 
@@ -18,3 +19,7 @@ I keep the old site [here](http://old-blog.teenycloud.com) until I migrate the c
 
 
 Hopefully the new layout will help me be more active !
+
+##### *Edited 10/10/2013: Some articles from my old-blog have been migrated.*
+
+______

@@ -7,32 +7,45 @@
 {% include head.html %}
 </head>
 
-<body id="page" itemscope itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
 
-{% include browser-upgrade.html %}
-{% include navigation_blog.html %}
+<div class="main-container">
+  {% include browser-upgrade.html %}
 
-<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
-  <article class="hentry" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogpost">
-    {% if page.image.feature %}<img src="{{ site.url }}/images/{{ page.image.feature }}" class="entry-feature-image" alt="{{ page.title }}">{% endif %}
-    <div class="entry-wrapper">
-      <header class="entry-header">
-        <h1 class="entry-title" itemprop="headline">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}</h1>{% endif %}
-      </header>
-      <div class="entry-content">
-        {{ content }}
-      </div><!-- /.entry-content -->
-    </div><!-- /.entry-wrapper -->
-  </article>
-</div><!-- /#main -->
+  <!-- Navigation container -->
+  <div class="navigation-container">
+    {% include navigation_blog.html %}
+  </div>
 
-<div class="footer-wrapper">
-  <footer role="contentinfo">
-    {% include footer.html %}
-  </footer>
-</div><!-- /.footer-wrapper -->
+  <div class="search-container">
+    {% include search.html %}
+  </div>
 
-{% include scripts.html %}          
+  <div id="content-container">
+    <!-- Content container -->
+    <div class="blog-post-list" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+      {% if page.image.feature %}
+      <img src="{{ site.url }}/images/{{ page.image.feature }}" class="entry-feature-image" alt="{{ page.title }}">
+      {% endif %}
+      <div class="blog-toc">
+        <div class="blog-header">
+          <h1 class="blog-title" itemprop="headline">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %}</h1>
+        </div>
+        <div class="blog-post-link-list">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Footer container -->
+  <div class="footer-container">
+    <footer role="contentinfo">
+      {% include footer.html %}
+    </footer>
+  </div>
+
+  {% include scripts.html %}
+</div>
 </body>
 </html>

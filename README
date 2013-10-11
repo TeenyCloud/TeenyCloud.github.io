@@ -1,7 +1,5 @@
 TODO
 ----
-1/ redo css files as right now they are taken as is from so-simple repo on github.
-   .less files and .css don't match
-   This is really ugly !
-2/ Put a system to minify the js + css
-3/ Activate disqus
+0/ Fix the line at the end of "blog" layout. There should be a margin
+1/ Migrate to bootsrap
+2/ Activate disqus

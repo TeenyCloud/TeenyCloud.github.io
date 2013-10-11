@@ -24,14 +24,14 @@
       };
     
     bs.dothis.on('click', function() {
-      $('.search-wrapper').css({ display: "block" });
+      $('.search-container').css({ display: "block" });
       bs.searchform.toggleClass('active');
       bs.searchform.find('input').focus();
       bs.canvas.toggleClass('search-overlay');
     });
     
       bs.close.on('click', function() {
-        $('.search-wrapper').removeAttr( 'style' );
+        $('.search-container').removeAttr( 'style' );
         bs.searchform.removeClass('active');
         bs.canvas.removeClass('search-overlay');
     });

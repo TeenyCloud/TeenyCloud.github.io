@@ -8,3 +8,7 @@ site:
 clean:
 	@rm -rf _site
 	@grunt clean
+
+dev: clean site
+	@grunt watch &
+	@jekyll serve --watch
