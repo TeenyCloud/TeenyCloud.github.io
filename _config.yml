@@ -15,6 +15,10 @@ owner:
   # For Google Authorship https://plus.google.com/authorship
   google_plus:    "http://plus.google.com/109855264068398326847"
 
+# Analytics
+google_analytics: UA-44817291-1
+domain: teenycloud.com
+
 # Links to include in top navigation
 # For external links add external: true
 #links:
