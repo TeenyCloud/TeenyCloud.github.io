@@ -8,10 +8,10 @@ image:
 
 # About me
 
-![me](http://www.gravatar.com/avatar/8047cb697139d90c9793f05ae588cc62.jpg?s=150)
-{: .pull-right}
 My name is Polo.
 
+![me](http://www.gravatar.com/avatar/8047cb697139d90c9793f05ae588cc62.jpg?s=150)
+{: .img-pull-right}
 I have always been interesting in technology since I was a kid. I first started using a Macintosh LC back in the early 90s when I was 10. I have been fascinated by computer science ever since. I discovered the Internet when it was not so much widespread in 1994 and remained connected since. I finally ended-up studying Computer Science and particularly Distributed Systems.
 I am now an IT manager involved in large scale IT solutions building.
 

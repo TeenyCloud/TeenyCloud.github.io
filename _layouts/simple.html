@@ -7,35 +7,40 @@
 {% include head.html %}
 </head>
 
-<body id="page" itemscope itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
 
-<div id="container">
-{% include browser-upgrade.html %}
-{% include navigation.html %}
+<div class="main-container">
+  {% include browser-upgrade.html %}
+  <!-- Navigation Container -->
+  <div class="navigation-container">
+    {% include navigation.html %}
+  </div>
+  <!-- Content Container -->
+  <div id="content-container">
+    <div id="simple-page-container">
+      <div class="simple-page">
+        {% if page.image.feature %}
+        <img src="{{ site.url }}/images/{{ page.image.feature }}" class="entry-feature-image" alt="{{ page.title }}">
+        {% endif %}
+        <div class="simple-page-content-container">
+          <div class="simple-page-header">
+            <h1 class="simple-page-title" itemprop="headline">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}</h1>{% endif %}
+          </div>
+          <div class="simple-page-content">
+            {{ content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer Container -->
+  <div class="footer-container">
+    <footer role="contentinfo">
+      {% include footer.html %}
+    </footer>
+  </div>
 
-<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
-  <article class="hentry" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogpost">
-    {% if page.image.feature %}<img src="{{ site.url }}/images/{{ page.image.feature }}" class="entry-feature-image" alt="{{ page.title }}">{% endif %}
-    <div class="entry-wrapper">
-      <header class="entry-header">
-        <h1 class="entry-title" itemprop="headline">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}</h1>{% endif %}
-      </header>
-      <div class="entry-content">
-        {{ content }}
-      </div><!-- /.entry-content -->
-    </div><!-- /.entry-wrapper -->
-  </article>
-</div><!-- /#main -->
-<div class="clear-footer"> </div>
-</div>
+  {% include scripts.html %}          
 
-<div class="footer-wrapper">
-  <footer role="contentinfo">
-    {% include footer.html %}
-  </footer>
-</div><!-- /.footer-wrapper -->
-
-{% include scripts.html %}          
-
-</body>
-</html>
+  </body>
+  </html>

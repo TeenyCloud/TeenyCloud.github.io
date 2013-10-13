@@ -13,7 +13,6 @@ body {
   min-height: 100%;
   padding: 50px 0 75px; // 65px == footer size + 10px
   background-color: @white;
-  border-top: 5px solid @black;
   position: relative;
   @media @medium {
     .font-rem(20);
@@ -28,6 +27,7 @@ body {
   position: absolute;
   top: 0px;
   height: 50px;
+  border-top: 5px solid @black;
   .clearfix();
   ul {
     display: inline-block;
@@ -112,6 +112,7 @@ body {
 
 // HOME
 // ---------------------------------------------------
+.simple-page-container,
 .home {
   text-align: center;
   margin: auto;
@@ -195,6 +196,7 @@ body {
   .clearfix();
 }
 
+.simple-page,
 .blog-container,
 .blog-toc {
   .clearfix();
@@ -213,6 +215,7 @@ body {
   }
 }
 
+.simple-page-header,
 .blog-header {
   max-width: 640px;
   width: 100%;
@@ -237,6 +240,11 @@ span + .blog-title {
   margin-top: 0;
 }
 
+span + .simple-page-title {
+  margin-top: 0;
+}
+
+.simple-page-title,
 .blog-title {
   font-family: @alt-font;
   font-style: italic;
@@ -258,6 +266,7 @@ span + .blog-title {
   }
 }
 
+.simple-page-content-container,
 .blog-container {
   margin: 0 auto 3em;
   max-width: 440px;
@@ -314,6 +323,7 @@ span + .blog-title {
   }
 }
 
+.simple-page-content,
 .blog-post,
 .blog-post-link-list {
   max-width: 640px;
@@ -336,6 +346,7 @@ span + .blog-title {
   }
 }
 
+.simple-page-content,
 .blog-post {
   text-align: justify;
 }
@@ -368,6 +379,19 @@ span + .blog-title {
     }
   }
 }
+
+.simple-page-content-container {
+  .simple-page-title {
+    text-align: center;
+    max-width: 100%;
+  }
+  .simple-page-content {
+    @media @large {
+      float: none;
+    }
+  }
+}
+
 // Post index layout
 .blog-post-link {
   margin: 0;

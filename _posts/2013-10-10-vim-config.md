@@ -44,7 +44,7 @@ This plugin is a life changer. It really turns Vim into an IDE.
 It enables as-you-type code completion with several completion engines built-in. In particular for C/C++/Objective-C/Objective-C++ languages, it relies on Clang making it breath taking. It also has support for Python and C#. There is no built-in support for JavaScript but we will "fix" this in a moment. You can grab YouCompleteMe on [Github](https://github.com/Valloric/YouCompleteMe). You won't regret it.
 
 ![YCM in action`]({{ site.url }}/images/ycm-vim.jpg)
-{: .site-pull-right}
+{: .img-pull-right}
 
 The installation is very well detailed. It is not just a "git clone" and requires to compile some extras (including Clang) but it is easy and definitely worth it.
 
@@ -148,7 +148,7 @@ nmap <leader>b :CommandTBuffer<CR>
 # Vin Indent Guides
 
 ![Vim Indent Guides]({{ site.url }}/images/vim-indent-guide.jpg)
-{: .site-pull-right}
+{: .img-pull-right}
 This plugins is very useful: it highlights indentation level. For Python development, no way around ;-) and very handy for any other languages. The coloration is picked up automatically by the plugin depending on your color scheme. That did not work for me but you have the ability to override it.
 
 Available [here](https://github.com/nathanaelkane/vim-indent-guides).

@@ -2,6 +2,7 @@ title:            TeenyCloud...
 #description:      Personal Blog
 logo:             site.png
 search:           true
+disqus_shortname: teenycloud
 #Comment out url when working locally to resolve base urls correctly
 url:              http://www.teenycloud.com
 
@@ -37,14 +38,6 @@ kramdown:
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: false
-
-  coderay:
-    coderay_line_numbers: 
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: class
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "Gruntfile.js", "package.json", "node_modules", "Gemfile"]
