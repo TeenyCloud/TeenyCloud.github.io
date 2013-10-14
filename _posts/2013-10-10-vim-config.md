@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The best Vim config"
+title: "The best Vim config (for me)"
 description: "A set of plugins to turn Vim into the best IDE"
 category: articles
 tags: [Vim, Editor, Coding]
