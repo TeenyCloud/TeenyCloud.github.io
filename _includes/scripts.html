@@ -51,6 +51,13 @@ ga('create', '{{ site.google_analytics }}', '{{ site.domain }}');
 </script>
 {% endif %}
 
+
+<script>
+$('#site-logo').hover(
+       function(){ $(this).toggleClass('animated pulse') }
+)
+</script>
+
 <!-- Google +1 -->
 <script type="text/javascript">
 window.___gcfg = {
