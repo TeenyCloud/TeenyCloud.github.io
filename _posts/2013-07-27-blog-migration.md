@@ -3,7 +3,7 @@ layout: post
 title: Site Migrated
 description: "Migration of the site to Jekyll"
 category: blog
-tags: [blog]
+tags: [Blog]
 modified: 2013-10-10
 comments: false
 ---
