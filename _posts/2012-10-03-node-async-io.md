@@ -3,7 +3,7 @@ layout: post
 title: "How Node does asynchronous I/O across platforms"
 description: "libuv in node.js - Asynchronous I/O across platforms"
 category: articles
-tags: [Node.js, libuv, Event programming]
+tags: [Node.js, libuv, Event-driven programming]
 comments: true
 ---
 
