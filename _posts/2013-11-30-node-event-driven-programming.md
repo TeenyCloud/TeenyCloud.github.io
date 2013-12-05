@@ -7,7 +7,7 @@ tags: [Node.js, Event-driven programming]
 comments: true
 ---
 
-I found out that some people are still confused about what Node.js is. For many it is just "JavaScrit on the server". In fact, while they primarily see JavaScript and focus on this, they overlook the most important part of Node.js: the event driven model.
+I found out that some people are still confused about what Node.js is. For many it is just "JavaScript on the server". In fact, while they primarily see JavaScript and focus on this, they overlook the most important part of Node.js: the event driven model.
 
 #So, what's Node ?
 
