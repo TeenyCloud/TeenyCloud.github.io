@@ -39,15 +39,6 @@
         {% endif %}
         </div>
         <footer class="entry-meta">
-          {% if site.owner.gravatar %}
-          <a href="{{ site.url }}/about" title="About {{ site.owner.name }}" itemprop="url">
-            <img src="{{ site.owner.gravatar }}" alt="{{ site.owner.name }} photo" class="author-photo">
-          </a>
-          {% else %}
-          <a href="{{ site.url }}/about" title="About {{ site.owner.name }}" itemprop="url">
-            <img src="{{ site.url }}/images/{{ site.owner.avatar }}" alt="{{ site.owner.name }} photo" class="author-photo">
-          </a>
-          {% endif %}
           <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">
             By <span itemprop="name" class="fn"><a href="{{ site.url }}/about" title="About {{ site.owner.name }}" itemprop="url">{{ site.owner.name }}</a></span>
           </span>
