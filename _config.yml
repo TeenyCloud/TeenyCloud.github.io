@@ -4,7 +4,7 @@ logo:             site.png
 search:           true
 disqus_shortname: teenycloud
 #Comment out url when working locally to resolve base urls correctly
- url:              http://www.teenycloud.com
+url:              http://www.teenycloud.com
 
 # Owner/author information
 owner:
