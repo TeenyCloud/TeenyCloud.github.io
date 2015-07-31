@@ -71,7 +71,7 @@
         <div class="blog-post">
           {{ content }}
           {% if page.comments %}
-          <div class="fb-comments"></div>
+          <div class="fb-comments" data-href="{{ site.url }}{{ page.url }}"></div>
           {% endif %}
         </div>
       </div>
