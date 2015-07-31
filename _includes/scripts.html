@@ -15,21 +15,21 @@
   });
 
   (function( $, window, undefined ) {
-    
+
      var bs = {
           close: $(".icon-remove-sign"),
           searchform: $(".search-form"),
           canvas: $("body"),
           dothis: $('.dosearch')
       };
-    
+
     bs.dothis.on('click', function() {
       $('.search-container').css({ display: "block" });
       bs.searchform.toggleClass('active');
       bs.searchform.find('input').focus();
       bs.canvas.toggleClass('search-overlay');
     });
-    
+
       bs.close.on('click', function() {
         $('.search-container').removeAttr( 'style' );
         bs.searchform.removeClass('active');
@@ -74,5 +74,5 @@ lang: 'en-US'
 <!-- Twitter Share -->
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-<!-- Disqus -->
-{% if page.comments %}{% include disqus_comments.html %}{% endif %}
+<!-- Facebook Comments-->
+{% if page.comments %}{% include fb_comments.html %}{% endif %}
