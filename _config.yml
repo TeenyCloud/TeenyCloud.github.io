@@ -1,10 +1,10 @@
-title:            TeenyCloud
+title:            Baloo.io
 #description:      Personal Blog
 logo:             site.png
 search:           true
 disqus_shortname: teenycloud
 #Comment out url when working locally to resolve base urls correctly
-url:              http://www.teenycloud.com
+url:              http://www.baloo.io
 
 # Owner/author information
 owner:
@@ -20,7 +20,7 @@ owner:
 
 # Analytics
 google_analytics: UA-44817291-1
-domain: teenycloud.com
+domain: baloo.io
 
 # Links to include in top navigation
 # For external links add external: true
