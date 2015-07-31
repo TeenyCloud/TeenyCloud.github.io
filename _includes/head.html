@@ -1,21 +1,24 @@
 <meta charset="utf-8">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}"/>
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"/>
+<meta property="og:url" content="{{ site.url }}{{ page.url }}/"/>
+<meta property="og:site_name" content="{{ site.title }}"/>
+<!-- Facebook Comments Moderation -->
+
+<meta property="fb:admins" content="polo.pfp"/>
 <title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
 <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"/>
 {% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}"/>{% endif %}
-<!-- Twitter Card and Open Graph tags -->
+<!-- Twitter Card -->
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}"/>
 <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"/>
 <meta name="twitter:creator" content="@{{ site.owner.twitter }}"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image:src" content="{% if page.image.thumb %}{{ site.url }}/images/{{ page.image.thumb }}{% else %}{{ site.url }}/logo/{{ site.logo }}{% endif %}"/>
-<meta property="og:type" content="article"/>
-<meta property="og:title" content="{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}"/>
-<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"/>
-<meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
-<meta property="og:site_name" content="{{ site.title }}"/>
 
-<!-- Facebook Comments Moderation -->
-<meta property="fb:admins" content="polo.pfp"/>
 
 <!-- Webmaster Tools verfication -->
 {% if site.google_verify %}<meta name="google-site-verification" content="{{ site.google_verify }}"/>{% endif %}
