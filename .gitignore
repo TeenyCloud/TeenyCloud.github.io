@@ -3,3 +3,4 @@ _site
 node_modules
 .idea
 _examples
+Gemfile.lock
