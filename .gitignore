@@ -3,3 +3,7 @@ _site
 node_modules
 .idea
 _examples
+Gemfile.lock
+.sass-cache
+.jekyll-metadata
+.jekyll-cache
