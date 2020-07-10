@@ -1,50 +1,65 @@
-title:            Baloo.io
-#description:      Personal Blog
-logo:             site.png
-search:           true
-disqus_shortname: teenycloud
-#Comment out url when working locally to resolve base urls correctly
-url:              http://www.baloo.io
+# Site
+name: 'My Teeny-Tiny Cloud'
+# description: 'Personal blog'
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/favicon.ico'
+baseurl: 'www.baloo.io'
 
-# Owner/author information
-owner:
-  name:           Polo-François Poli
-  nickname:       Polo
-  gravatar:       "http://www.gravatar.com/avatar/8047cb697139d90c9793f05ae588cc62.jpg?s=150"
-  # Social networking links used in footer. Update and remove as you like.
-  facebook:        "polo.pfp"
-  # Social networking links used in footer. Update and remove as you like.
-  #twitter:        "P0l_0"
-  # For Google Authorship https://plus.google.com/authorship
-  #google_plus:    "http://plus.google.com/+PoloFrancoisPoli"
-
-# Analytics
-google_analytics: UA-44817291-1
-domain: baloo.io
-
-# Links to include in top navigation
-# For external links add external: true
-#links:
-#  - title: Blog
-#    url: /blog
-#  - title: About
-#    url: /about
-
-# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    Europe/Paris
-future:      true
-pygments:    true
-markdown:    kramdown
-
-# https://github.com/mojombo/jekyll/wiki/Permalinks
+include: ["_pages"]
 permalink:   /blog/:year/:month/:day/:title
 relative_permalinks: false
 
+# Plugins
+plugins: 
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-seo-tag
+  
+authors:
+    polo:
+      name:           Polo
+      website:        https://www.baloo.io
+      avatar:         assets/images/avatar.jpg
+      bio:            "Hi, I am Polo. I have always been interesting in technology since I was a kid. I first started using a Macintosh LC back in the early 90s when I was 10. I have been fascinated by computer science ever since. I discovered the Internet when it was not so much widespread in 1994 and remained connected since. I finally ended-up studying Computer Science and particularly Distributed Systems. I am now an engineering manager."
+      twitter:        polo_pfp
+      facebook:       pfp
+
+ 
+# Defaults
+defaults:
+
+  # all posts
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      author: polo
+      # avatar: /assets/images/avatar1.jpg
+      
+  # all pages
+  - scope:
+      path: "_pages"
+    values:
+      layout: page
+      
+# Syntax
+markdown: kramdown
+highlighter: rouge
+timezone:    Europe/Paris
+future:      true
+pygments:    true
+
+# Paginate
+paginate: 10
+
+#Kramdown
 kramdown:
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
 
-include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "Gruntfile.js", "package.json", "node_modules", "Gemfile"]
+
+# Exclude metadata and development time dependencies (like Grunt plugins)
+exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]

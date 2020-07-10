@@ -2,39 +2,6 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc'
-      },
-      all: [
-        'Gruntfile.js',
-        'assets/js/scripts/*.js',
-        '!assets/js/scripts.min.js'
-      ]
-    },
-    recess: {
-      dist: {
-        options: {
-          compile: true,
-          compress: true
-        },
-        files: {
-          'assets/css/main.min.css': [
-            'assets/less/main.less'
-          ]
-        }
-      }
-    },
-    uglify: {
-      dist: {
-        files: {
-          'assets/js/scripts.min.js': [
-            'assets/js/plugins/*.js',
-            'assets/js/scripts/*.js'
-          ]
-        }
-      }
-    },
     imagemin: {
       dist: {
         options: {
@@ -43,9 +10,9 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'images/',
+          cwd: 'assets/images/',
           src: '{,*/}*.{png,jpg,jpeg}',
-          dest: 'images/'
+          dest: 'assets/images/'
         }]
       }
     },
@@ -53,53 +20,21 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: 'images/',
+          cwd: 'assets/images/',
           src: '{,*/}*.svg',
-          dest: 'images/'
+          dest: 'assets/images/'
         }]
       }
-    },
-    watch: {
-      less: {
-        files: [
-          'assets/less/*.less'
-        ],
-        tasks: ['recess']
-      },
-      js: {
-        files: [
-          '<%= jshint.all %>'
-        ],
-        tasks: ['uglify']
-      }
-    },
-    clean: {
-      dist: [
-        'assets/css/main.min.css',
-        'assets/js/scripts.min.js'
-      ]
     }
   });
 
   // Load tasks
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-recess');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-svgmin');
 
   // Register tasks
   grunt.registerTask('default', [
-    'clean',
-    'recess',
-    'uglify',
     'imagemin',
     'svgmin'
   ]);
-  grunt.registerTask('dev', [
-    'watch'
-  ]);
-
 };

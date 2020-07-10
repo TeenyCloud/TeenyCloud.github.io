@@ -43,7 +43,7 @@ This plugin is a life changer. It really turns Vim into an IDE.
 
 It enables as-you-type code completion with several completion engines built-in. In particular for C/C++/Objective-C/Objective-C++ languages, it relies on Clang making it breath taking. It also has support for Python and C#. There is no built-in support for JavaScript but we will "fix" this in a moment. You can grab YouCompleteMe on [Github](https://github.com/Valloric/YouCompleteMe). You won't regret it.
 
-![YCM in action`]({{ site.url }}/images/ycm-vim.jpg)
+![YCM in action`]({{ site.url }}/assets/images/ycm-vim.jpg)
 {: .img-pull-right}
 
 The installation is very well detailed. It is not just a "git clone" and requires to compile some extras (including Clang) but it is easy and definitely worth it.
@@ -123,7 +123,7 @@ Thanks to NERD Tree, I don't use anymore ":Explore" or ":Sexplore".
 The NERD Tree allows you to explore files in a very nice way. It splits the window and displays the tree at the left of the buffer in edit. An image is worth a hundred words:
 
 <figure style="text-align:center">
-	<img src="{{ site.url }}/images/nerd-tree.jpg">
+	<img src="{{ site.url }}/assets/images/nerd-tree.jpg">
 	<figcaption>Notice the syntax error highligthed by Syntastic</figcaption>
 </figure>
 
@@ -147,7 +147,7 @@ nmap <leader>b :CommandTBuffer<CR>
 
 # Vin Indent Guides
 
-![Vim Indent Guides]({{ site.url }}/images/vim-indent-guide.jpg)
+![Vim Indent Guides]({{ site.url }}/assets/images/vim-indent-guide.jpg)
 {: .img-pull-right}
 This plugins is very useful: it highlights indentation level. For Python development, no way around ;-) and very handy for any other languages. The coloration is picked up automatically by the plugin depending on your color scheme. That did not work for me but you have the ability to override it.
 
