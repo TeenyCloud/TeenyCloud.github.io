@@ -3,7 +3,7 @@ name: 'My Teeny-Tiny Cloud'
 # description: 'Personal blog'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
-baseurl: 'www.baloo.io'
+baseurl: ''
 
 include: ["_pages"]
 permalink:   /blog/:year/:month/:day/:title
