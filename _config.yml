@@ -1,5 +1,5 @@
 # Site
-name: 'My Teeny-Tiny Cloud'
+name: 'A Teeny-tiny Cloud'
 # description: 'Personal blog'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
@@ -19,7 +19,7 @@ plugins:
 authors:
     polo:
       name:           Polo
-      website:        https://www.baloo.io
+      website:        https://www.teenycloud.com
       avatar:         assets/images/avatar.jpg
       bio:            "Hi, I am Polo. I have always been interesting in technology since I was a kid. I first started using a Macintosh LC back in the early 90s when I was 10. I have been fascinated by computer science ever since. I discovered the Internet when it was not so much widespread in 1994 and remained connected since. I finally ended-up studying Computer Science and particularly Distributed Systems. I am now an engineering manager."
       twitter:        polo_pfp
