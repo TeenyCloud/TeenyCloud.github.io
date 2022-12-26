@@ -804,3 +804,12 @@ div.a2a_full_footer {display:none;}
 	 }
  }
  
+
+/* for image caption */
+img + em {
+    font-style: normal;
+    display: inherit;
+    text-align: center;
+    font-size: 75%;
+    color: #696969
+}
