@@ -1,34 +1,33 @@
 # Site
-name: 'A Teeny-tiny Cloud'
+name: "A Teeny-tiny Cloud"
+title: "A Teeny-tiny Cloud"
 # description: 'Personal blog'
-logo: 'assets/images/logo.png'
-favicon: 'assets/images/favicon.ico'
-baseurl: ''
+logo: "assets/images/logo.png"
+favicon: "assets/images/favicon.ico"
+baseurl: ""
 
 include: ["_pages"]
-permalink:   /blog/:year/:month/:day/:title
+permalink: /blog/:year/:month/:day/:title
 relative_permalinks: false
 
 # Plugins
-plugins: 
+plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-seo-tag
-  
-authors:
-    polo:
-      name:           Polo
-      website:        https://www.teenycloud.com
-      avatar:         assets/images/avatar.jpg
-      bio:            "Hi, I am Polo. I have always been interesting in technology since I was a kid. I first started using a Macintosh LC back in the early 90s when I was 10. I have been fascinated by computer science ever since. I discovered the Internet when it was not so much widespread in 1994 and remained connected since. I finally ended-up studying Computer Science and particularly Distributed Systems. I am now an engineering manager."
-      twitter:        polo_pfp
-      facebook:       pfp
 
- 
+authors:
+  polo:
+    name: Polo
+    website: https://www.teenycloud.com
+    avatar: assets/images/avatar.jpg
+    bio: "Hi, I am Polo. I have always been interesting in technology since I was a kid. I first started using a Macintosh LC back in the early 90s when I was 10. I have been fascinated by computer science ever since. I discovered the Internet when it was not so much widespread in 1994 and remained connected since. I finally ended-up studying Computer Science and particularly Distributed Systems. I am now an engineering manager."
+    twitter: polo_pfp
+    facebook: pfp
+
 # Defaults
 defaults:
-
   # all posts
   - scope:
       path: "_posts"
@@ -36,19 +35,19 @@ defaults:
       layout: post
       author: polo
       # avatar: /assets/images/avatar1.jpg
-      
+
   # all pages
   - scope:
       path: "_pages"
     values:
       layout: page
-      
+
 # Syntax
 markdown: kramdown
 highlighter: rouge
-timezone:    Europe/Paris
-future:      true
-pygments:    true
+timezone: Europe/Paris
+future: true
+# pygments:    true
 
 # Paginate
 paginate: 10
@@ -60,6 +59,5 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
 
-
 # Exclude metadata and development time dependencies (like Grunt plugins)
-exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
+exclude: [README.markdown]
