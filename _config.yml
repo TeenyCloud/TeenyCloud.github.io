@@ -21,10 +21,10 @@ authors:
   polo:
     name: Polo
     website: https://www.teenycloud.com
-    avatar: assets/images/avatar.jpg
+    avatar: assets/images/avatar.png
     bio: "Hi, I am Polo. I have always been interesting in technology since I was a kid. I first started using a Macintosh LC back in the early 90s when I was 10. I have been fascinated by computer science ever since. I discovered the Internet when it was not so much widespread in 1994 and remained connected since. I finally ended-up studying Computer Science and particularly Distributed Systems. I am now an engineering manager."
-    twitter: polo_pfp
-    facebook: pfp
+    twitter: https://twitter.com/polo_pfp
+    facebook: https://fb.com/pfp
 
 # Defaults
 defaults:
@@ -34,7 +34,7 @@ defaults:
     values:
       layout: post
       author: polo
-      # avatar: /assets/images/avatar1.jpg
+      # avatar: assets/images/avatar.png
 
   # all pages
   - scope:
@@ -47,7 +47,6 @@ markdown: kramdown
 highlighter: rouge
 timezone: Europe/Paris
 future: true
-# pygments:    true
 
 # Paginate
 paginate: 10
