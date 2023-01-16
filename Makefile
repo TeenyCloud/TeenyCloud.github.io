@@ -19,7 +19,10 @@ update:
 	@bundle update github-pages
 
 serve:
-	bundle exec jekyll serve --watch
+	bundle exec jekyll serve --incremental --watch
+
+serve-drafts:
+	bundle exec jekyll serve --incremental --watch --drafts
 
 imgmin:
 	@echo "Reducing JPEG size..."
