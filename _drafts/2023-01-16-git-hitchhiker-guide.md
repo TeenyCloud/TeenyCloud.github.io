@@ -5,8 +5,8 @@ description: "A guide to git"
 category: Git
 tags: [featured]
 comments: true
-image: assets/images/clement-h-95YRwf6CNw8-unsplash.jpg
-image-credit: <span>Photo by <a href="https://unsplash.com/@clemhlrdt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Clément H</a> on <a href="https://unsplash.com/s/photos/code?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+image: assets/images/yancy-min-842ofHC6MaI-unsplash.jpg
+image-credit: <span>Photo by <a href="https://unsplash.com/@yancymin?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Yancy Min</a> on <a href="https://unsplash.com/s/photos/git?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 ---
 
 My very first experience with distributed version control system (DVCS) was with Bazaar (bzr) in late 2006. I only used it for a couple of weeks but it got me interested in DVCS and in 2007, I tried both Git and Mercurial.
