@@ -171,7 +171,7 @@ Also, if you want to list only the N most recent changesets, simply do (N=3 here
 
     $ git log <ID-1>..<ID-2>
 
-This will list all the changesets in the history accessible from \<ID-2\> that are **NOT** accessible from \<ID-1\>. It might seem a bit surprising explained like that so let's take an example:
+This will list all the changesets in the history accessible from ``<ID-2>`` that are **NOT** accessible from ``<ID-1>``. It might seem a bit surprising explained like that so let's take an example:
 
 ```
   A --- B -- C -- D -- E 
@@ -183,7 +183,7 @@ From ID-1, we can reach: B, A
 
 'git log <ID-1>..<ID-2>' will output E, D ,C
 ```
-So this command seems to output all the commit between \<ID-1\> and \<ID-2\>. And this is the case if the history is linear. But let's consider a non linear history. (Don't worry how we can get to a non linear history for now, we'll see this later).
+So this command seems to output all the commit between ``<ID-1>`` and ``<ID-2>``. And this is the case if the history is linear. But let's consider a non linear history. (Don't worry how we can get to a non linear history for now, we'll see this later).
 
 ```
                      ID-1
@@ -199,11 +199,11 @@ From ID-1, we can reach: Z, Y, X, B, A
 
 'git log <ID-1>..<ID-2>' will output: E, D ,C
 ```
-In the latter case, this is a bit counter-intuitive as one might have expected to see all the commits between \<ID-1\> and \<ID-2\>. There is a three-dots version of the log command that will do exactly this:
+In the latter case, this is a bit counter-intuitive as one might have expected to see all the commits between ``<ID-1>`` and ``<ID-2>``. There is a three-dots version of the log command that will do exactly this:
 
     $ git log <ID-1>...<ID-2>
 
-The 3 dot versions lits all the changesets in the history accessible from \<ID-1\> **OR** \<ID-2\> **but not both**. So on the above example:
+The 3 dot versions lits all the changesets in the history accessible from ``<ID-1>`` **OR** ``<ID-2>`` **but not both**. So on the above example:
 
 ```
                      ID-1
@@ -233,7 +233,7 @@ Git provides the mean to see the diffs:
 
     $ git diff <rev_1> <rev_2>
 
-``git diff`` will output the patch to apply to go from \<rev_1\> to \<rev_2\>. And if \<rev_1\> is in fact a more recent revision than \<rev_2\>, then git diff outputs the reverse patch compared to the ones applied when going from \<rev_2\> to \<rev_1\>.
+``git diff`` will output the patch to apply to go from ``<rev_1>`` to ``<rev_2>``. And if ``<rev_1>`` is in fact a more recent revision than ``<rev_2>``, then git diff outputs the reverse patch compared to the ones applied when going from ``<rev_2>`` to ``<rev_1>``.
 The ``diff`` command also allows to display the diff between a particular revision and the work tree - what you have done and not yet staged or committed.
 
     $ git diff <rev>
@@ -250,7 +250,7 @@ The three-dots notation is subtle:
 
     $ git diff <rev_1>...<rev_2>
 
-compares \<rev_2\> with the most recent common ancestor in the graph between \<rev_1\> and \<rev_2\>. The most recent common ancestor of two changesets, also known as the [lowest common ancestor](https://en.wikipedia.org/wiki/Lowest_common_ancestor) in graph theory, is the most recent changeset in the history that has **both these two changesets as descendants**.
+compares ``<rev_2>`` with the most recent common ancestor in the graph between ``<rev_1>`` and ``<rev_2>``. The most recent common ancestor of two changesets, also known as the [lowest common ancestor](https://en.wikipedia.org/wiki/Lowest_common_ancestor) in graph theory, is the most recent changeset in the history that has **both these two changesets as descendants**.
 
 Let's see what this means if we assume we have the following history:
 
@@ -525,7 +525,7 @@ Now, with this out of the way, let's have a look at remote tracking branches.
 
 Each branch in the remote repository is also present in your local reference after you ``git fetch``. It is called a _remote tracking branch_.
 
-A **remote tracking branch** is therefore a local reference to a branch existing in a remote repository. It is **read-only**. A remote tracking branch is always represented by the name of the remote and the name of the branch in the remote: \<local name of remote\>/\<name of branch in remote\>. A remote tracking branch is updated only when communicating with the remote repository via ``git fetch <local name of remote>`` for example. When you cloned a repository you therefore get at least one remote tracking branch that is called ``origin/main``.
+A **remote tracking branch** is therefore a local reference to a branch existing in a remote repository. It is **read-only**. A remote tracking branch is always represented by the name of the remote and the name of the branch in the remote: ``<local name of remote>/<name of branch in remote>``. A remote tracking branch is updated only when communicating with the remote repository via ``git fetch <local name of remote>`` for example. When you cloned a repository you therefore get at least one remote tracking branch that is called ``origin/main``.
 
 To see the existing branches in a remote repository, you can use:
 
@@ -607,7 +607,7 @@ or the shorter:
 
     $ git push -u <remote> <branch>
 
-In this case, after the push, your local branch is turned into a tracking branch of the remote tracking branch <local name for the remote>/<branch name in the repo>.
+In this case, after the push, your local branch is turned into a tracking branch of the remote tracking branch ``<local name for the remote>/<branch name in the repo>``.
 
 If you push from a tracking branch, git already knows what remote you want to push to and what is the branch name. So on a tracking branch, you can simply do a ``git push`` and it will do what you expect. This will work provided you did not rename your local branch. Indeed if you renamed your local branch, even if it is a tracking branch, git will output an error message:
 
@@ -627,7 +627,7 @@ To push to a remote branch with a different name than your local branch, you nee
 
     $ git push <remote> <branch>:<remote branch>
 
-This will tell git to push the changesets from the local branch <local branch name> into the branch <branch name in the remote> from the repository locally identified by <local name of the remote>.
+This will tell git to push the changesets from the local branch ``<local branch name>`` into the branch ``<branch name in the remote>`` from the repository locally identified by ``<local name of the remote>``.
 Using this syntax, you can even delete a remote branch:
 
     $ git push <remote> :<remote branch>
