@@ -18,7 +18,6 @@ But I kept using Git from time to time and at some point I finally switched to i
 If there are still some people who are not familiar with Git (or with DVCS), I hope they'll find this post useful. And if you already know about Git, maybe it can still be interesting. Initially it started as a list of commands to remember, a kind of cheat sheet, but eventually I decided to turn it into something bigger: a hitchhiker guide to git.
 
 ## Table of Contents
-
 - [About DVCS](#about-dvcs)
 - [Git (really quick) History](#git-really-quick-history)
 - [Git Basics](#git-basics)
