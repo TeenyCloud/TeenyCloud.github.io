@@ -4,11 +4,12 @@
 
 body {
 	overflow-x:hidden;
-	padding-top:69.75px;
+	padding-top:95px;
 }
 .site-content {
 	margin-top:30px;
 	min-height:400px;
+	padding-bottom:80px;
 }
 .remove-site-content-margin {
 	margin-top:-30px;
@@ -204,7 +205,7 @@ a.text-dark:hover {
 }
 .navbar-brand {
 	margin-right:2rem;
-	font-size:1.55rem;
+	font-size:2rem;
     font-family:"Georgia","Times New Roman",serif;
 }
 .dropdown-item {
@@ -637,9 +638,13 @@ ol.list-featured li:before {
 	display:none;
 }
 footer {
-	margin-top:50px;
-	z-index:1022;
+	margin-top:0;
 	position:relative;
+	z-index:1051;
+	background-color:#fff;
+	padding-top:20px;
+	padding-bottom:20px;
+	box-shadow:0 -3px 10px 0 rgba(0,0,0,.1);
 }
 .sticky-top-offset {
 	top:70px;
@@ -652,7 +657,7 @@ footer {
     margin-top:10px;
 }
 article {
-	font-size:20px;
+	font-size:18px;
 	line-height:1.86;
     font-family:Lora;
 }
@@ -702,7 +707,7 @@ article h1,article h2,article h3,article h4,article h5,article h6,article .h1,ar
 	background-color:#fff;
 	width:100%;
 	padding:20px 0;
-	z-index:1021;
+	z-index:1050;
 	display:none;
 }
 .alertbar img {
@@ -797,7 +802,7 @@ div.a2a_full_footer {display:none;}
 		 font-size: 1.1rem; 
 	 }
 	 article {
-		 font-size:1.24rem;
+		 font-size:1.12rem;
 	 }
 	 .topfirstimage {
 		 height:280px !Important;
