@@ -27,7 +27,7 @@ Anyone who has been involved in building large scale applications knows that sca
 
 # The traditional concurrency model
 
-The traditional answer to this problem is to spawn a new child process to serve each connection. The parent process will remain available for listening to new connections. Each new connection results in the creation of a child process dedicated to it. Another alternative is to use threads. In multithreaded servers each connection gets a dedicated thread to be served while the main thread keeps listening to incoming connections. The multithreaded approach, though probably more efficient, remains the same in essence than the multi-process approach.
+The traditional answer to this problem is to spawn a new child process to serve each connection. The parent process will remain available for listening to new connections. Each new connection results in the creation of a child process dedicated to it. Another alternative is to use threads. In multithreaded servers each connection gets a dedicated thread to be served while the main thread keeps listening to incoming connections. The multithreaded approach, though probably more efficient, remains the same in essence as the multi-process approach.
 
 Thanks to this, it is possible to serve several clients at the same time. However, this concurrency model doesn't scale so well. The same code is running in each process (or each thread) but from the OS perspective they are different tasks. Consequently, it all depends on how the operating system (OS) is going to manage multiple tasks at the same time.
 
@@ -35,7 +35,7 @@ Thanks to this, it is possible to serve several clients at the same time. Howeve
 
 In modern OS, multi-tasking is achieved through CPU-time multiplexing also known as time-sharing. Each process is then attributed a given amount of CPU time and can be preempted at some point so the CPU can be given to another process. This is preemptive multitasking, the most common way nowadays of doing time-sharing. A context switch is needed in between two processes: the states of the preempted process must be saved and the states of the process which is going to acquire the CPU must be restored. Though recent operating systems are doing a pretty good job at switching contexts, this is still an expensive operation. Multi-process and multithreaded applications also require a significant amount of memory despite the code between each process/thread is the same. All in all, this model is consuming a lot of resources on the machine, be it CPU or memory.
 
-And it gets worst if the processes need to wait for something.
+And it gets worse if the processes need to wait for something.
 
 ### The problem of wait
 
@@ -66,7 +66,7 @@ So, the more processes there are, the more they will compete for the CPU. The mo
 
 # Event-driven concurrency model
 
-The alternative is to use an event-driven model. This has proved useful in many products such as nginx for example, the second most popular open-source web-server as of May12 or Twisted, a python framework for event driven networking engine or in EventMachine, a ruby framework for event processing. In an event model, everything runs in one process, one thread. Instead of spawning a new process/thread for each connection request, a event is emitted and the appropriate callback for that event is invoked. Once an event is treated, the process is ready to treat another event.
+The alternative is to use an event-driven model. This has proved useful in many products such as nginx for example, the second most popular open-source web-server as of May 2012 or Twisted, a python framework for event driven networking engine or in EventMachine, a ruby framework for event processing. In an event model, everything runs in one process, one thread. Instead of spawning a new process/thread for each connection request, a event is emitted and the appropriate callback for that event is invoked. Once an event is treated, the process is ready to treat another event.
 
 Such a model is particularly interesting if most of the activities can be turned into events. This becomes a really good concurrency and high-performance model when any I/Os (not just network I/O as is the most common in existing frameworks) are events. It is based on event patterns such as the [Reactor](www.cs.wustl.edu/~schmidt/PDF/reactor-siemens.pdf) or the [Proactor](www.cs.wustl.edu/~schmidt/PDF/proactor.pdf) which are patterns for Concurrent, Parallel, and Distributed Systems; documents from Douglas C. Schmidt. This event-driven concurrency model is superior to the traditional multithreaded/multi-process one: the memory footprint is drastically reduced, the CPU is better used and more clients can be served concurrently out of a single machine.
 
@@ -88,9 +88,9 @@ In real life, the operating systems always have some other processes running alo
 
 To some extent, one can consider the event-driven approach being very similar to cooperative multitasking but at the application level. Event-driven applications are themselves multiplexing CPU time between clients.
 
-There is obviously a risk with this; the same than with cooperative multitasking in fact. A risk which explains why at the OS level, preemptive multitasking is used. If the process at some point can block for one client, then it will block all the other clients. For example, in cooperative multitasking a non-responding process would make the system hang (Remember Windows before Windows 95 or Mac OS before Mac OS X ? <span><i class="icon-smile"></i></span> )
+There is obviously a risk with this; the same as with cooperative multitasking in fact. A risk which explains why at the OS level, preemptive multitasking is used. If the process at some point can block for one client, then it will block all the other clients. For example, in cooperative multitasking a non-responding process would make the system hang (Remember Windows before Windows 95 or Mac OS before Mac OS X ? <span><i class="icon-smile"></i></span> )
 
-In event-driven model, all the events are treated by a gigantic loop know as the event-loop. The event-loop is going to get from a queue the next event to process and will dispatch it the corresponding handler. Anyone blocking the event-loop will prevent the other events from being processed. So in Node (and in all event-driven framework) the golden rule is __"DO NOT BLOCK THE EVENT LOOP"__. Everything has to be non-blocking. And Node is particularly good at this because all the API it exposes is non-blocking (with the exception of some file system operations which come in two flavors: asynchronous and synchronous).
+In event-driven model, all the events are treated by a gigantic loop known as the event-loop. The event-loop is going to get from a queue the next event to process and will dispatch it to the corresponding handler. Anyone blocking the event-loop will prevent the other events from being processed. So in Node (and in all event-driven framework) the golden rule is __"DO NOT BLOCK THE EVENT LOOP"__. Everything has to be non-blocking. And Node is particularly good at this because all the API it exposes is non-blocking (with the exception of some file system operations which come in two flavors: asynchronous and synchronous).
 
 # And JavaScript in all this ?
 
@@ -108,7 +108,7 @@ That's why, Node conceptors, partly leveraging on emerging initiative such as Co
 
 # Conclusion
 
-Node has combined an event-driven programming model at its heart and JavaScript as the developper-facing programming language enriched with a set of modules, including a complete non-blocking I/O API. This makes Node a lightweight, easy to use and powerful server-side environment, particularly well suited for I/O bound applicatons.
-Node makes possible to write a complete web application from backend to UI using one single language. For some people, this is considered a serious advantage.
+Node has combined an event-driven programming model at its heart and JavaScript as the developer-facing programming language enriched with a set of modules, including a complete non-blocking I/O API. This makes Node a lightweight, easy to use and powerful server-side environment, particularly well suited for I/O bound applications.
+Node makes it possible to write a complete web application from backend to UI using one single language. For some people, this is considered a serious advantage.
 
 Node has met widespread adoption since it was introduced in 2009 by Ryan Dahl at the JSConf.eu. In 2012, Node was elected InfoWorld's Technology of the year Award Winner.

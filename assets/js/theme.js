@@ -6,6 +6,24 @@
         } else {
             $('.alertbar').fadeOut();
         }
+
+        // Adjust alertbar position when footer is visible
+        var footer = $('footer');
+        var alertbar = $('.alertbar');
+        if (footer.length && alertbar.length) {
+            var footerTop = footer.offset().top;
+            var scrollBottom = $(window).scrollTop() + $(window).height();
+            var footerHeight = footer.outerHeight();
+
+            if (scrollBottom > footerTop) {
+                // Footer is visible, push alertbar up
+                var overlap = scrollBottom - footerTop;
+                alertbar.css('bottom', Math.min(overlap, footerHeight) + 'px');
+            } else {
+                // Footer not visible, alertbar at bottom
+                alertbar.css('bottom', '0px');
+            }
+        }
     });
 
 

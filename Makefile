@@ -1,31 +1,45 @@
 # Let's use goold old Makefile
 #
-.PHONY: help bootstrap update serve
+.PHONY: help build serve serve-drafts shell clean imgmin update
 
 help:
-	@echo "'make install' to install the tools to build the website"
-	@echo "'make update' to update the tools to build the website"
-	@echo "'make serve' to build and serve the website"
-	@echo "'make imgmin' to minimize image size"
+	@echo "Development commands (all run in Docker container):"
+	@echo "  'make build'         - build the Docker image with tools (first time only)"
+	@echo "  'make serve'         - build and serve the website in container"
+	@echo "  'make serve-drafts'  - serve the website with drafts in container"
+	@echo "  'make shell'         - open a shell in the container"
+	@echo "  'make imgmin'        - minimize image size (runs in container)"
+	@echo "  'make update'        - update gem dependencies"
+	@echo "  'make clean'         - remove container and volumes"
 
-install:
-	@Echo "Installing build dependencies..."
-	@rm -f Gemfile.lock
-	@gem install jekyll bundler
-	@bundle install
+build:
+	@echo "Building Docker image..."
+	docker-compose build
 
 update:
-	@echo "Updating dependencies"
-	@bundle update github-pages
+	@echo "Updating gem dependencies..."
+	docker-compose run --rm jekyll bundle update
 
 serve:
-	bundle exec jekyll serve --incremental --watch
+	@echo "Starting Jekyll server in container..."
+	@echo "Site will be available at http://localhost:4000"
+	docker-compose up
 
 serve-drafts:
-	bundle exec jekyll serve --incremental --watch --drafts
+	@echo "Starting Jekyll server with drafts in container..."
+	@echo "Site will be available at http://localhost:4000"
+	docker-compose run --rm --service-ports jekyll jekyll serve --host 0.0.0.0 --livereload --incremental --watch --drafts
+
+shell:
+	@echo "Opening shell in Jekyll container..."
+	docker-compose run --rm jekyll /bin/bash
 
 imgmin:
-	@echo "Reducing JPEG size..."
-	@if [ "echo $(which jpegoptim)" == "" ];then echo "Please install jpegoptim"; else jpegoptim ./assets/images/*.jpg; fi
-	@echo "Reducing PNG size..."
-	@if [ "echo $(which optipng)" == "" ];then echo "Please install optipng"; else optipng ./assets/images/*.png; fi
+	@echo "Minimizing images in container..."
+	@docker-compose run --rm jekyll sh -c "jpegoptim ./assets/images/*.jpg 2>/dev/null || true"
+	@docker-compose run --rm jekyll sh -c "optipng ./assets/images/*.png 2>/dev/null || true"
+	@echo "Done!"
+
+clean:
+	@echo "Removing Docker containers and volumes..."
+	docker-compose down -v

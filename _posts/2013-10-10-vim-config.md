@@ -41,7 +41,7 @@ In practice, I recommend to install all "bundle" in a directory called bundle-av
 
 This plugin is a life changer. It really turns Vim into an IDE.
 
-It enables as-you-type code completion with several completion engines built-in. In particular for C/C++/Objective-C/Objective-C++ languages, it relies on Clang making it breath taking. It also has support for Python and C#. There is no built-in support for JavaScript but we will "fix" this in a moment. You can grab YouCompleteMe on [Github](https://github.com/Valloric/YouCompleteMe). You won't regret it.
+It enables as-you-type code completion with several completion engines built-in. In particular for C/C++/Objective-C/Objective-C++ languages, it relies on Clang making it breathtaking. It also has support for Python and C#. There is no built-in support for JavaScript but we will "fix" this in a moment. You can grab YouCompleteMe on [Github](https://github.com/Valloric/YouCompleteMe). You won't regret it.
 
 ![YCM in action`]({{ site.url }}/assets/images/ycm-vim.jpg)
 {: .img-pull-right}
@@ -124,7 +124,7 @@ The NERD Tree allows you to explore files in a very nice way. It splits the wind
 
 <figure style="text-align:center">
 	<img src="{{ site.url }}/assets/images/nerd-tree.jpg">
-	<figcaption>Notice the syntax error highligthed by Syntastic</figcaption>
+	<figcaption>Notice the syntax error highlighted by Syntastic</figcaption>
 </figure>
 
 Installation is just a "git clone" away ;-)
@@ -145,7 +145,7 @@ nmap <leader>e :CommandT<CR>
 nmap <leader>b :CommandTBuffer<CR>
 {% endhighlight %}
 
-# Vin Indent Guides
+# Vim Indent Guides
 
 ![Vim Indent Guides]({{ site.url }}/assets/images/vim-indent-guide.jpg)
 {: .img-pull-right}
@@ -165,7 +165,7 @@ Available [here](https://github.com/nathanaelkane/vim-indent-guides).
 
 Two plugins that I have tried and that seem to be doing a pretty good job:
 
-* [vim-css-color](https://github.com/skammer/vim-css-color) which underlays the hexa color codes with their real color. Quite useful.
+* [vim-css-color](https://github.com/skammer/vim-css-color) which underlays the hex color codes with their real color. Quite useful.
 * [vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax) add CSS3 syntax support to Vim.
 
 And because [less](http://lesscss.org/) is awesome and you want to use less:

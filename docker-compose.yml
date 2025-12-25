@@ -1,0 +1,22 @@
+services:
+  jekyll:
+    build: .
+    platform: linux/arm64
+    container_name: jekyll-blog
+    ports:
+      - "4000:4000"
+      - "35729:35729"  # LiveReload port
+    volumes:
+      - .:/srv/jekyll
+      # Keep gems in a named volume to avoid installing on Mac filesystem
+      - jekyll-vendor:/usr/local/bundle
+    environment:
+      - JEKYLL_ENV=development
+      # Tell bundler to use the volume for gems
+      - BUNDLE_PATH=/usr/local/bundle
+      # Skip bundle install if gems are already installed
+      - BUNDLE_APP_CONFIG=/usr/local/bundle
+    command: jekyll serve --livereload --incremental --watch
+
+volumes:
+  jekyll-vendor:
