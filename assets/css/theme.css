@@ -884,6 +884,24 @@ article li {
     margin-bottom: 0.5rem;
 }
 
+/* Table of contents specific styling */
+article h2 + ul {
+    margin-top: 1rem;
+}
+
+article h2 + ul > li {
+    margin-bottom: 0.35rem;
+}
+
+article h2 + ul ul {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+article h2 + ul ul li {
+    margin-bottom: 0.25rem;
+}
+
 /* Better table styling for articles */
 article table {
     width: 100%;
