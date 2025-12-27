@@ -25,6 +25,7 @@ If there are still some people who are not familiar with Git (or with DVCS), I h
   - [Ignoring Files with .gitignore](#ignoring-files-with-gitignore)
   - [Status, Add/Stage](#status-addstage)
     - [Interactive Staging](#interactive-staging)
+    - [Undoing Changes](#undoing-changes)
   - [Commit](#commit)
   - [Stash - Temporarily Saving Work](#stash---temporarily-saving-work)
 - [Navigating the History](#navigating-the-history)
@@ -46,9 +47,9 @@ If there are still some people who are not familiar with Git (or with DVCS), I h
   - [Fixing Mistakes](#fixing-mistakes)
 - [Collaboration Model](#collaboration-model)
   - [Centralized Workflow](#centralized-workflow)
-  - [The Fork & Pull Workflow](#the-fork--pull-workflow)
-  - [Working with a Fork/Pull Model](#working-with-a-forkpull-model)
-  - [Pull Requests and Diff in Github](#pull-requests-and-diff-in-github)
+  - [The Fork & Pull Workflow (Github)](#the-fork--pull-workflow-github)
+    - [Working with a Fork/Pull Model](#working-with-a-forkpull-model)
+    - [Pull Requests and Diff in Github](#pull-requests-and-diff-in-github)
   - [Patches & Emails](#patches--emails)
 
 ## About DVCS
@@ -181,16 +182,6 @@ Untracked files:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-**Note**: Modern versions of Git (2.23+) introduced `git restore` as a clearer alternative to `git checkout` for discarding changes. To discard changes in the working directory, you can now use:
-
-    $ git restore <file>
-
-And to unstage changes:
-
-    $ git restore --staged <file>
-
-These commands make Git's intent clearer and are now the recommended approach.
-
 Looking at the status output, you can see that git informs you that some of the changes are not staged for commit. Indeed, should you do a `git commit`, that is to say should you want to register your changes in your local repository as a new changeset, nothing will happen. This is because git expects you to tell specifically what changes you want to be taken into account for the next commit. The operations of selecting which changes should be added for the next commit is called staging and is performed via the `git add` (or `git stage`) operation.
 
     $ git add [file|folder]
@@ -228,11 +219,7 @@ Changes to be committed:
 	new file:   newFile.txt
 ```
 
-Staged (or added) changes can be unstaged before the commit is done. This is done thanks to the `git reset` operation.
-
-    $ git reset <file>
-
-_Note_: _if you are careful, you noticed that in the previous status display, git told to use `git reset HEAD <file>` to unstaged. If omitted, HEAD is implied. We will discuss about HEAD later._
+Staged changes can be unstaged if needed. See the [Undoing Changes](#undoing-changes) section below for details on unstaging files and discarding changes.
 
 #### Interactive Staging
 
@@ -283,6 +270,140 @@ $ git commit -m "Fix bug"
 $ git add app.js           # Stage remaining changes
 $ git commit -m "Add feature"
 ```
+
+#### Undoing Changes
+
+Sometimes you need to discard changes in your working directory or unstage files. Git provides several commands for this, with modern alternatives introduced in Git 2.23+.
+
+**Discarding changes in the working directory:**
+
+The traditional way to discard uncommitted changes:
+
+    $ git checkout -- <file>
+
+Modern Git (2.23+) introduced a clearer alternative:
+
+    $ git restore <file>
+
+Both commands discard modifications to a file and restore it to the last committed state. **Warning**: This operation is destructive - your changes are lost permanently.
+
+**Example:**
+
+```
+# You modified file.txt but want to discard changes
+$ git status
+Changes not staged for commit:
+    modified:   file.txt
+
+# Discard changes (old way)
+$ git checkout -- file.txt
+
+# Or discard changes (new way, recommended)
+$ git restore file.txt
+
+# file.txt is now back to its last committed state
+```
+
+**Unstaging files:**
+
+If you staged a file but want to unstage it (keep the changes, just remove from staging area):
+
+Traditional way:
+
+    $ git reset HEAD <file>
+    # or simply
+    $ git reset <file>
+
+_Note: When you run `git status` after staging files, Git suggests using `git reset HEAD <file>` to unstage. The `HEAD` parameter refers to the current commit, but it can be omitted as it's the default. We will discuss HEAD in more detail later._
+
+Modern Git (2.23+) alternative:
+
+    $ git restore --staged <file>
+
+**Example:**
+
+```
+# You staged file.txt but want to unstage it
+$ git status
+Changes to be committed:
+    modified:   file.txt
+
+# Unstage (old way)
+$ git reset file.txt
+
+# Or unstage (new way, recommended)
+$ git restore --staged file.txt
+
+# file.txt is unstaged but changes remain in working directory
+```
+
+**Combining operations:**
+
+You can discard changes and unstage in one workflow:
+
+```
+# Unstage and discard changes (old way)
+$ git reset file.txt
+$ git checkout -- file.txt
+
+# Unstage and discard changes (new way)
+$ git restore --staged file.txt
+$ git restore file.txt
+
+# Or in one command (new way only)
+$ git restore --staged --worktree file.txt
+```
+
+**Discarding all local changes:**
+
+To discard all uncommitted changes in the working directory:
+
+    $ git checkout -- .
+    # or
+    $ git restore .
+
+**Warning**: This discards all changes in tracked files. Use with caution.
+
+**Removing untracked files:**
+
+The above commands only affect tracked files. To remove untracked files (files that `git status` shows as "Untracked files"):
+
+    $ git clean -n     # Dry run - show what would be deleted
+    $ git clean -f     # Force - actually delete untracked files
+    $ git clean -fd    # Delete untracked files and directories
+    $ git clean -fdx   # Delete untracked files, directories, and ignored files
+
+**Example workflow:**
+
+```
+# See what would be deleted
+$ git clean -n
+Would remove newfile.txt
+Would remove temp/
+
+# Actually remove them
+$ git clean -fd
+Removing newfile.txt
+Removing temp/
+```
+
+**Important differences between commands:**
+
+| Command | Effect on Working Directory | Effect on Staging Area |
+|---------|----------------------------|------------------------|
+| `git checkout -- <file>` | Discards changes | No change |
+| `git restore <file>` | Discards changes | No change |
+| `git reset <file>` | No change | Unstages file |
+| `git restore --staged <file>` | No change | Unstages file |
+| `git clean -f` | Removes untracked files | No effect |
+
+**Best practices:**
+
+- Use `git restore` instead of `git checkout --` for better clarity (Git 2.23+)
+- Use `git restore --staged` instead of `git reset` for unstaging (Git 2.23+)
+- Always use `git clean -n` first to preview what will be deleted
+- Consider using `git stash` instead of discarding if you might need changes later
+- Remember: discarding changes is permanent - you can't get them back
 
 ### Commit
 
@@ -1508,7 +1629,7 @@ This model enforces a star topology where all collaboration happens through the 
 
 Many companies use this model internally. It is still possible to use Code Reviews with this workflow but it will heavily depends on the tool that is used. For instance, to my knowledge Github in this workflow only supports support creating a diff from a branch that _exists_ within the main repository. (_Note for those with already prior knowledge about Github: such a diff is created via a Pull Request in Github._) So it's possible to open a diff from a branch B so the code can be reviewed before getting merged in the main trunk (or another branch) but it's not possible to open a diff for code review for that code to get into the branch B in the first place. The [Gerrit Code Review](https://www.gerritcodereview.com/) tool on the other hand supports this workflow quite well with some nice features on top.
 
-### The Fork & Pull Workflow
+### The Fork & Pull Workflow (Github)
 
 This workflow was popularized by Github. It's quite useful when developers don't have write access to the canonical repository. That's why it became so much used for open-source projects allowing anyone to submit code even though they don't have write access to the main repository.
 In this model each participant has two repositories: one that is private and where they do their development and another (usually a bare one) that is publicly accessible (or within an organization) in read mode - called a Fork - and that is used to exchange code.
