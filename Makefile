@@ -23,7 +23,7 @@ update:
 serve:
 	@echo "Starting Jekyll server in container..."
 	@echo "Site will be available at http://localhost:4000"
-	docker-compose up
+	docker-compose run --rm --service-ports jekyll
 
 serve-drafts:
 	@echo "Starting Jekyll server with drafts in container..."
