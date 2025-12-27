@@ -64,6 +64,20 @@ make clean
 - **Automatic Install**: The Jekyll image automatically runs `bundle install` on startup, using cached gems for fast subsequent runs
 - **Zero Local Dependencies**: You only need Docker - all Jekyll dependencies stay inside the container
 
+#### Container Lifecycle
+
+All commands use **temporary containers** (`docker-compose run --rm`):
+- Every `make` command creates a fresh container that's automatically removed when you exit
+- Containers are ephemeral and don't persist after stopping
+- No leftover containers cluttering your Docker environment
+
+**What actually persists:**
+- **Blog source files**: Stored on your Mac filesystem (bind mount), editable with any editor
+- **Ruby gems**: Stored in the `jekyll-vendor` Docker volume for fast reinstalls
+- **Generated site**: Written to `_site/` on your Mac (via bind mount)
+
+This means you can safely delete containers without losing any work - all important data persists outside the container.
+
 ## Blog Structure
 
 ### Adding Authors
