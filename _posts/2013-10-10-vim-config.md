@@ -1,10 +1,9 @@
 ---
-layout: post
-title: "The best Vim config (for me)"
+title: "The best vim config (for me)"
 description: "A set of plugins to turn Vim into the best IDE"
-category: articles
+category: blog
 tags: [Vim, Editor, Coding]
-comments: true
+image: "assets/images/nerd-tree.jpg"
 ---
 
 Some time ago, [I wrote about a Vim config](http://old-blog.teenycloud.com/2012/05/vim-configuration.html) which was more focused on Node.js. I used it in conjunction to [AutoComplPop](http://www.vim.org/scripts/script.php?script_id=1879) and a set of other plugins. However, I had to patch the auto-completion plugin for it to behave the way I wanted and it still didn't quite work the way I hoped (or I simply failed to use it correctly).
@@ -20,24 +19,23 @@ This is a pre-requisite.
 
 {% highlight text %}
 .vim/
-  |
-  +- autoload/
-  |
-  +- bundle/
-  |    |
-  |    +- Plugin-A
-  |    |
-  |    +- Plugin B
-  |    |
-  |    +- etc..
-  |
-  +- etc..
+|
++- autoload/
+|
++- bundle/
+| |
+| +- Plugin-A
+| |
+| +- Plugin B
+| |
+| +- etc..
+|
++- etc..
 {% endhighlight %}
 
 In practice, I recommend to install all "bundle" in a directory called bundle-available and to link (ln -s) from bundle to bundle-available. This will allow to de-activate temporarily a bundle very easily if need be.
 
 # YouCompleteMe
-
 
 This plugin is a life changer. It really turns Vim into an IDE.
 
@@ -82,12 +80,12 @@ Alternatively, I suggest to remap the \<enter\> key in INSERT mode to do this au
 {% highlight vim %}
 "BreakLine: Return TRUE if in the middle of {} or () in INSERT mode
 fun BreakLine()
-  if (mode() == 'i')
-    return ((getline(".")[col(".")-2] == '{' && getline(".")[col(".")-1] == '}') ||
-          \(getline(".")[col(".")-2] == '(' && getline(".")[col(".")-1] == ')'))
-  else
-    return 0
-  endif
+if (mode() == 'i')
+return ((getline(".")[col(".")-2] == '{' && getline(".")[col(".")-1] == '}') ||
+\(getline(".")[col(".")-2] == '(' && getline(".")[col(".")-1] == ')'))
+else
+return 0
+endif
 endfun
 
 " Remap <Enter> to split the line and insert a new line in between if
@@ -165,20 +163,15 @@ Available [here](https://github.com/nathanaelkane/vim-indent-guides).
 
 Two plugins that I have tried and that seem to be doing a pretty good job:
 
-* [vim-css-color](https://github.com/skammer/vim-css-color) which underlays the hex color codes with their real color. Quite useful.
-* [vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax) add CSS3 syntax support to Vim.
+- [vim-css-color](https://github.com/skammer/vim-css-color) which underlays the hex color codes with their real color. Quite useful.
+- [vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax) add CSS3 syntax support to Vim.
 
 And because [less](http://lesscss.org/) is awesome and you want to use less:
 
-* [vim-less](https://github.com/groenewege/vim-less) is for you !
+- [vim-less](https://github.com/groenewege/vim-less) is for you !
 
-
-_______
-
+---
 
 ## Happy Vimming !
 
-_______
-
-
-
+---

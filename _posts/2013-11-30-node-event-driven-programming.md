@@ -1,12 +1,13 @@
 ---
-layout: post
 title: "Node.js & Event-driven programming"
 description: "What Node.js and event-driven programming are"
 category: Node
-tags: 
-comments: true
+tags:
 image: assets/images/markus-spiske-qjnAnF0jIGk-unsplash.jpg
-image-credit: <span>Photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Markus Spiske</a> on <a href="https://unsplash.com/s/photos/programming?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+image-author: Markus Spiske
+image-author-link: https://unsplash.com/@markusspiske
+image-site: Unsplash
+image-site-link: https://unsplash.com/s/photos/programming
 ---
 
 I found out that some people are still confused about what Node.js is. For many it is just "JavaScript on the server". In fact, while they primarily see JavaScript and focus on this, they overlook the most important part of Node.js: the event driven model.

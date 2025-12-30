@@ -140,6 +140,82 @@ _posts/
     ---
 ```
 
+### Image Credits
+
+Posts can include image credits in three different ways, giving you flexibility based on your needs:
+
+#### Option 1: Structured Fields (Recommended)
+
+Use individual metadata fields to automatically generate properly formatted credits:
+
+```yaml
+---
+image: assets/images/photo.jpg
+image-author: Yancy Min
+image-author-link: https://unsplash.com/@yancymin
+image-site: Unsplash
+image-site-link: https://unsplash.com/s/photos/git
+image-link: https://unsplash.com/photos/abc123
+---
+```
+
+**Generates:** "Image by Yancy Min on Unsplash" (with appropriate links)
+
+**Fields:**
+- `image-author`: Name of the image creator (optional)
+- `image-author-link`: URL to author's profile (optional)
+- `image-site`: Name of the source site (optional)
+- `image-site-link`: URL to the source site (optional)
+- `image-link`: URL to the specific image (optional, makes "Image" clickable)
+
+**Examples:**
+
+```yaml
+# Minimal - just author
+image-author: Jane Doe
+# Generates: "Image by Jane Doe"
+
+# Author and site
+image-author: Jane Doe
+image-site: Unsplash
+# Generates: "Image by Jane Doe on Unsplash"
+
+# Site only
+image-site: Pexels
+image-site-link: https://pexels.com
+# Generates: "Image on Pexels"
+
+# Just image link
+image-link: https://example.com/photo
+# Generates: "Image" (linked)
+```
+
+#### Option 2: AI-Generated Images
+
+For AI-generated images, use:
+
+```yaml
+---
+image: assets/images/ai-generated.jpg
+image-ai: DALL-E 3
+---
+```
+
+**Generates:** "Image generated with DALL-E 3"
+
+#### Option 3: Custom HTML (Legacy)
+
+For complete control, provide raw HTML:
+
+```yaml
+---
+image: assets/images/photo.jpg
+image-credit: <span>Photo by <a href="...">Author</a> on <a href="...">Site</a></span>
+---
+```
+
+The HTML will be rendered as-is. This option is useful for complex credits or backward compatibility.
+
 ### Troubleshooting
 
 **Gems re-installing on every run?**
