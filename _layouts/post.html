@@ -19,23 +19,44 @@ layout: default
 					<div class="d-flex align-items-center">
 						{% if page.author.first %}
 							{% comment %}Multiple authors{% endcomment %}
-							<div class="d-flex">
-							{% for author_slug in page.author %}
-								{% assign author = site.authors | where: "slug", author_slug | first %}
-								{% if author.avatar %}
-								<a href="{{site.baseurl}}/author-{{author.slug}}">
-									<img class="rounded-circle {% if forloop.first == false %}ml-n3{% endif %}" src="{{site.baseurl}}/{{author.avatar}}" alt="{{author.name}}" width="70" style="border: 3px solid white;"/>
-								</a>
-								{% endif %}
-							{% endfor %}
-							</div>
-							<small class="ml-3">
+							<div>
+								<div class="d-flex flex-wrap">
 								{% for author_slug in page.author %}
 									{% assign author = site.authors | where: "slug", author_slug | first %}
-									{% if forloop.last and forloop.length > 1 %}and {% endif %}<a href="{{site.baseurl}}/author-{{author.slug}}" class="text-dark">{{ author.name }}</a>{% if forloop.last == false and forloop.length > 2 %}, {% elsif forloop.last == false %} {% endif %}
+									<div class="d-flex align-items-start mr-4 mb-2">
+										{% if author.avatar %}
+										<a href="{{site.baseurl}}/author-{{author.slug}}">
+											<img class="rounded-circle" src="{{site.baseurl}}/{{author.avatar}}" alt="{{author.name}}" width="60"/>
+										</a>
+										{% endif %}
+										<div class="ml-3">
+											<div>
+												<a href="{{site.baseurl}}/author-{{author.slug}}" class="text-dark font-weight-bold">{{ author.name }}</a>
+											</div>
+											<div class="mt-1">
+												{% if author.website %}
+												<a href="{{ author.website }}" target="_blank" title="Website" class="mr-1"><i class="fa-solid fa-globe" style="font-size: 0.85rem;"></i></a>
+												{% endif %}
+												{% if author.linkedin %}
+												<a href="{{ author.linkedin }}" target="_blank" title="LinkedIn" class="mr-1"><i class="fa-brands fa-square-linkedin" style="font-size: 0.85rem;"></i></a>
+												{% endif %}
+												{% if author.github %}
+												<a href="{{ author.github }}" target="_blank" title="GitHub" class="mr-1"><i class="fa-brands fa-square-github" style="font-size: 0.85rem;"></i></a>
+												{% endif %}
+												{% if author.bluesky %}
+												<a href="{{ author.bluesky }}" target="_blank" title="Bluesky" class="mr-1"><i class="fa-brands fa-square-bluesky" style="font-size: 0.85rem;"></i></a>
+												{% endif %}
+												{% assign twitter_url = author.twitter | default: author.x %}
+												{% if twitter_url %}
+												<a href="{{ twitter_url }}" target="_blank" title="Twitter/X" class="mr-1"><i class="fa-brands fa-square-x-twitter" style="font-size: 0.85rem;"></i></a>
+												{% endif %}
+											</div>
+										</div>
+									</div>
 								{% endfor %}
-								{{ post_date }}
-							</small>
+								</div>
+								<small class="text-muted d-block">{{ post_date }}</small>
+							</div>
 						{% else %}
 							{% comment %}Single author{% endcomment %}
 							{% assign author = site.authors | where: "slug", page.author | first %}
@@ -44,7 +65,28 @@ layout: default
 								<img class="rounded-circle" src="{{site.baseurl}}/{{author.avatar}}" alt="{{author.name}}" width="70"/>
 								{% endif %}
 							</a>
-							<small class="ml-3"><a href="{{site.baseurl}}/author-{{author.slug}}" class="text-dark">{{ author.name }}</a>{{ post_date }}</small>
+							<small class="ml-3">
+								<a href="{{site.baseurl}}/author-{{author.slug}}" class="text-dark">{{ author.name }}</a>
+								<span class="ml-2">
+									{% if author.website %}
+									<a href="{{ author.website }}" target="_blank" title="Website"><i class="fa-solid fa-globe" style="font-size: 0.9rem;"></i></a>
+									{% endif %}
+									{% if author.linkedin %}
+									<a href="{{ author.linkedin }}" target="_blank" title="LinkedIn"><i class="fa-brands fa-square-linkedin" style="font-size: 0.9rem;"></i></a>
+									{% endif %}
+									{% if author.github %}
+									<a href="{{ author.github }}" target="_blank" title="GitHub"><i class="fa-brands fa-square-github" style="font-size: 0.9rem;"></i></a>
+									{% endif %}
+									{% if author.bluesky %}
+									<a href="{{ author.bluesky }}" target="_blank" title="Bluesky"><i class="fa-brands fa-square-bluesky" style="font-size: 0.9rem;"></i></a>
+									{% endif %}
+									{% assign twitter_url = author.twitter | default: author.x %}
+									{% if twitter_url %}
+									<a href="{{ twitter_url }}" target="_blank" title="Twitter/X"><i class="fa-brands fa-square-x-twitter" style="font-size: 0.9rem;"></i></a>
+									{% endif %}
+								</span>
+								{{ post_date }}
+							</small>
 						{% endif %}
 					</div>
 					{% endif %}
@@ -152,6 +194,34 @@ layout: default
 							</div>
 							<div class="col-md-10">
 								<h5 class="font-weight-bold">{{ author.name }}</h5>
+								<div class="mb-2">
+									{% if author.website %}
+									<a href="{{ author.website }}" target="_blank" class="mr-2" title="Website">
+										<i class="fa-solid fa-globe"></i>
+									</a>
+									{% endif %}
+									{% if author.linkedin %}
+									<a href="{{ author.linkedin }}" target="_blank" class="mr-2" title="LinkedIn">
+										<i class="fa-brands fa-square-linkedin"></i>
+									</a>
+									{% endif %}
+									{% if author.github %}
+									<a href="{{ author.github }}" target="_blank" class="mr-2" title="GitHub">
+										<i class="fa-brands fa-square-github"></i>
+									</a>
+									{% endif %}
+									{% if author.bluesky %}
+									<a href="{{ author.bluesky }}" target="_blank" class="mr-2" title="Bluesky">
+										<i class="fa-brands fa-square-bluesky"></i>
+									</a>
+									{% endif %}
+									{% assign twitter_url = author.twitter | default: author.x %}
+									{% if twitter_url %}
+									<a href="{{ twitter_url }}" target="_blank" class="mr-2" title="Twitter/X">
+										<i class="fa-brands fa-square-x-twitter"></i>
+									</a>
+									{% endif %}
+								</div>
 								{{ author.bio }}
 							</div>
 						</div>
@@ -167,6 +237,34 @@ layout: default
 						</div>
 						<div class="col-md-10">
 							<h5 class="font-weight-bold">Written by {{ author.name }}</h5>
+							<div class="mb-2">
+								{% if author.website %}
+								<a href="{{ author.website }}" target="_blank" class="mr-2" title="Website">
+									<i class="fa-solid fa-globe"></i>
+								</a>
+								{% endif %}
+								{% if author.linkedin %}
+								<a href="{{ author.linkedin }}" target="_blank" class="mr-2" title="LinkedIn">
+									<i class="fa-brands fa-square-linkedin"></i>
+								</a>
+								{% endif %}
+								{% if author.github %}
+								<a href="{{ author.github }}" target="_blank" class="mr-2" title="GitHub">
+									<i class="fa-brands fa-square-github"></i>
+								</a>
+								{% endif %}
+								{% if author.bluesky %}
+								<a href="{{ author.bluesky }}" target="_blank" class="mr-2" title="Bluesky">
+									<i class="fa-brands fa-square-bluesky"></i>
+								</a>
+								{% endif %}
+								{% assign twitter_url = author.twitter | default: author.x %}
+								{% if twitter_url %}
+								<a href="{{ twitter_url }}" target="_blank" class="mr-2" title="Twitter/X">
+									<i class="fa-brands fa-square-x-twitter"></i>
+								</a>
+								{% endif %}
+							</div>
 							{{ author.bio }}
 						</div>
 					</div>

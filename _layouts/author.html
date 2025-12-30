@@ -10,9 +10,34 @@ layout: default
           <h2 class="font-weight-bold">
             {{page.name}}
           </h2>
-          <p>
-            <a href="{{ page.website }}">{{ page.website }}</a>
-          </p>
+          <div class="mb-3">
+            {% if page.website %}
+            <a href="{{ page.website }}" target="_blank" class="mr-3" title="Website">
+              <i class="fa-solid fa-globe"></i>
+            </a>
+            {% endif %}
+            {% if page.linkedin %}
+            <a href="{{ page.linkedin }}" target="_blank" class="mr-3" title="LinkedIn">
+              <i class="fa-brands fa-square-linkedin"></i>
+            </a>
+            {% endif %}
+            {% if page.github %}
+            <a href="{{ page.github }}" target="_blank" class="mr-3" title="GitHub">
+              <i class="fa-brands fa-square-github"></i>
+            </a>
+            {% endif %}
+            {% if page.bluesky %}
+            <a href="{{ page.bluesky }}" target="_blank" class="mr-3" title="Bluesky">
+              <i class="fa-brands fa-square-bluesky"></i>
+            </a>
+            {% endif %}
+            {% assign twitter_url = page.twitter | default: page.x %}
+            {% if twitter_url %}
+            <a href="{{ twitter_url }}" target="_blank" class="mr-3" title="Twitter/X">
+              <i class="fa-brands fa-square-x-twitter"></i>
+            </a>
+            {% endif %}
+          </div>
           <p class="excerpt">{{ page.bio }}</p>
         </div>
         <div class="col-md-3 text-right">

@@ -663,6 +663,7 @@ article {
 	font-size:16px;
 	line-height:1.75;
     font-family:Lora;
+    text-align:justify;
 }
 .article-headline {
     font-family: Georgia,Times,"Times New Roman",serif;
@@ -820,6 +821,26 @@ img + em {
     text-align: center;
     font-size: 75%;
     color: #696969
+}
+
+/* Centered image with caption */
+article figure.img-centered {
+    text-align: center;
+    margin: 2rem auto;
+    display: block;
+}
+
+article figure.img-centered img {
+    margin: 0 auto !important;
+    display: block;
+}
+
+article figure.img-centered figcaption {
+    color: #666;
+    margin-top: 0.2em;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 90%;
 }
 
 /* Author box styling - more specific selector to avoid conflicts */

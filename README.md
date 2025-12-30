@@ -99,8 +99,14 @@ This blog uses Jekyll Collections to automatically generate author pages. Adding
    website: https://janedoe.com
    avatar: assets/images/jane-avatar.png
    bio: "Jane's bio here. Keep it concise and informative."
+   linkedin: https://www.linkedin.com/in/janedoe
+   github: https://github.com/janedoe
+   bluesky: https://bsky.app/profile/janedoe
+   twitter: https://twitter.com/janedoe
    ---
    ```
+
+   Note: Social media fields are optional - only include the ones you want to display.
 
 3. **That's it!** Jekyll will automatically:
    - Generate an author page at `/author-jane.html`
@@ -111,9 +117,20 @@ This blog uses Jekyll Collections to automatically generate author pages. Adding
 
 - **name**: Display name of the author (required)
 - **slug**: URL-friendly identifier used in permalinks and post references (required)
-- **website**: Author's website URL (optional)
+- **website**: Author's website URL (optional) - displayed as a globe icon
 - **avatar**: Path to author's avatar image relative to site root (required)
 - **bio**: Short biography text (required)
+
+**Social Media Links** (all optional):
+- **linkedin**: LinkedIn profile URL (e.g., `https://www.linkedin.com/in/username`)
+- **github**: GitHub profile URL (e.g., `https://github.com/username`)
+- **bluesky**: Bluesky profile URL (e.g., `https://bsky.app/profile/username`)
+- **twitter** or **x**: Twitter/X profile URL (e.g., `https://twitter.com/username`) - both field names are supported
+
+Social media links are automatically displayed as icons on:
+- Author pages (`/author-{slug}.html`)
+- Authors list page (`/authors.html`)
+- Post author bylines (at the top and bottom of posts)
 
 #### How It Works
 

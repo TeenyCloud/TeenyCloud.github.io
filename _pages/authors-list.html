@@ -20,7 +20,20 @@ permalink: "/authors.html"
             <div class="icon-block mt-3 d-flex justify-content-between">
             <div>
               {% if author.website %}
-              <a target="_blank" href="{{ author.website }}"><i class="fa fa-globe text-muted" aria-hidden="true"></i></a> &nbsp;
+              <a target="_blank" href="{{ author.website }}" title="Website"><i class="fa-solid fa-globe text-muted"></i></a> &nbsp;
+              {% endif %}
+              {% if author.linkedin %}
+              <a target="_blank" href="{{ author.linkedin }}" title="LinkedIn"><i class="fa-brands fa-square-linkedin text-muted"></i></a> &nbsp;
+              {% endif %}
+              {% if author.github %}
+              <a target="_blank" href="{{ author.github }}" title="GitHub"><i class="fa-brands fa-square-github text-muted"></i></a> &nbsp;
+              {% endif %}
+              {% if author.bluesky %}
+              <a target="_blank" href="{{ author.bluesky }}" title="Bluesky"><i class="fa-brands fa-square-bluesky text-muted"></i></a> &nbsp;
+              {% endif %}
+              {% assign twitter_url = author.twitter | default: author.x %}
+              {% if twitter_url %}
+              <a target="_blank" href="{{ twitter_url }}" title="Twitter/X"><i class="fa-brands fa-square-x-twitter text-muted"></i></a> &nbsp;
               {% endif %}
             </div>
             </div>
