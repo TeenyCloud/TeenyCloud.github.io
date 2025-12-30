@@ -207,9 +207,13 @@ a.text-dark:hover {
 	color:#fff !important;
 }
 .navbar-brand {
-	margin-right:2rem;
-	font-size:2rem;
+	margin-right: clamp(0.5rem, 2vw, 2rem);
+	font-size: clamp(1.5rem, 3vw, 2rem);
     font-family:"Georgia","Times New Roman",serif;
+}
+.navbar-brand img {
+	height: clamp(2.3rem, 4.5vw, 3rem) !important;
+	margin-right: clamp(0.25rem, 1vw, 0.5rem) !important;
 }
 .dropdown-item {
 	font-weight:400;
