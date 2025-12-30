@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign author = site.authors | where: "slug", page.author | first %}
+{% capture post_date %}<span class="text-muted d-block mt-1">{{ page.date | date: '%b %d, %Y' }}{% if page.modified %} (Edit: {{ page.modified | date: '%b %d, %Y' }}){% endif %} · {% include meta-read-time.html %}</span>{% endcapture %}
 <div class="container">
 <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
 		<div class="h-100 tofront">
@@ -15,20 +15,51 @@ layout: default
                         </span>
 					</p>
 					<h1 class="display-4 mb-4 article-headline">{{ page.title }}</h1>
+					{% if page.author %}
 					<div class="d-flex align-items-center">
-                        {% if author.avatar %}
-                        <img class="rounded-circle" src="{{site.baseurl}}/{{author.avatar}}" alt="{{author.name}}" width="70"/>
-                        {% endif %}
-						<small class="ml-3"> {{ author.name }}
-                            <span class="text-muted d-block mt-1">{{ page.date | date: '%b %d, %Y' }} · {% include meta-read-time.html %}</span>
-						</small>
+						{% if page.author.first %}
+							{% comment %}Multiple authors{% endcomment %}
+							<div class="d-flex">
+							{% for author_slug in page.author %}
+								{% assign author = site.authors | where: "slug", author_slug | first %}
+								{% if author.avatar %}
+								<a href="{{site.baseurl}}/author-{{author.slug}}">
+									<img class="rounded-circle {% if forloop.first == false %}ml-n3{% endif %}" src="{{site.baseurl}}/{{author.avatar}}" alt="{{author.name}}" width="70" style="border: 3px solid white;"/>
+								</a>
+								{% endif %}
+							{% endfor %}
+							</div>
+							<small class="ml-3">
+								{% for author_slug in page.author %}
+									{% assign author = site.authors | where: "slug", author_slug | first %}
+									{% if forloop.last and forloop.length > 1 %}and {% endif %}<a href="{{site.baseurl}}/author-{{author.slug}}" class="text-dark">{{ author.name }}</a>{% if forloop.last == false and forloop.length > 2 %}, {% elsif forloop.last == false %} {% endif %}
+								{% endfor %}
+								{{ post_date }}
+							</small>
+						{% else %}
+							{% comment %}Single author{% endcomment %}
+							{% assign author = site.authors | where: "slug", page.author | first %}
+							<a href="{{site.baseurl}}/author-{{author.slug}}">
+								{% if author.avatar %}
+								<img class="rounded-circle" src="{{site.baseurl}}/{{author.avatar}}" alt="{{author.name}}" width="70"/>
+								{% endif %}
+							</a>
+							<small class="ml-3"><a href="{{site.baseurl}}/author-{{author.slug}}" class="text-dark">{{ author.name }}</a>{{ post_date }}</small>
+						{% endif %}
 					</div>
+					{% endif %}
 				</div>
                 {% if page.image %}
 				<div class="col-md-6 pr-0 align-self-center">
 					<img class="rounded" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
           {% if page.image-credit %}
-          <div style="text-align: center;font-size: smaller;">{{page.image-credit}}</span></div>
+          <div style="text-align: center;font-size: smaller;">{{page.image-credit}}</div>
+          {% elsif page.image-author or page.image-site or page.image-link %}
+          <div style="text-align: center;font-size: smaller;">
+            {% if page.image-link %}<a href="{{page.image-link}}">Image</a>{% else %}Image{% endif %}{% if page.image-author %} by {% if page.image-author-link %}<a href="{{page.image-author-link}}">{{page.image-author}}</a>{% else %}{{page.image-author}}{% endif %}{% endif %}{% if page.image-site %} on {% if page.image-site-link %}<a href="{{page.image-site-link}}">{{page.image-site}}</a>{% else %}{{page.image-site}}{% endif %}{% endif %}
+          </div>
+          {% elsif page.image-ai %}
+          <div style="text-align: center;font-size: smaller;">Image generated with {{page.image-ai}}</div>
           {% endif %}
 				</div>
                 {% endif %}
@@ -54,7 +85,7 @@ layout: default
 				<div class="share d-inline-block">
 					<!-- AddToAny BEGIN -->
 					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fas fa-share-alt fa-2x"></i></a>
 					</div>
 					<script async src="https://static.addtoany.com/menu/page.js"></script>
 					<!-- AddToAny END -->
@@ -107,25 +138,41 @@ layout: default
             
             
              <!-- Author Box -->
-                {% if page.author %}				
-				<div class="row mt-5">
-					<div class="col-md-2 align-self-center">
-                         {% if author.avatar %}
-                        <img class="rounded-circle" src="{{site.baseurl}}/{{author.avatar}}" alt="{{author.name}}" width="90"/>
-                        {% endif %} 
+                {% if page.author %}
+				{% if page.author.first %}
+					{% comment %}Multiple authors{% endcomment %}
+					<h5 class="font-weight-bold mt-5 mb-4">Written by {% if page.author.size > 1 %}Authors{% else %}Author{% endif %}</h5>
+					{% for author_slug in page.author %}
+						{% assign author = site.authors | where: "slug", author_slug | first %}
+						<div class="row {% if forloop.first %}mt-3{% else %}mt-4{% endif %}">
+							<div class="col-md-2 align-self-center">
+								{% if author.avatar %}
+								<img class="rounded-circle" src="{{site.baseurl}}/{{author.avatar}}" alt="{{author.name}}" width="90"/>
+								{% endif %}
+							</div>
+							<div class="col-md-10">
+								<h5 class="font-weight-bold">{{ author.name }}</h5>
+								{{ author.bio }}
+							</div>
+						</div>
+					{% endfor %}
+				{% else %}
+					{% comment %}Single author{% endcomment %}
+					{% assign author = site.authors | where: "slug", page.author | first %}
+					<div class="row mt-5">
+						<div class="col-md-2 align-self-center">
+							{% if author.avatar %}
+							<img class="rounded-circle" src="{{site.baseurl}}/{{author.avatar}}" alt="{{author.name}}" width="90"/>
+							{% endif %}
+						</div>
+						<div class="col-md-10">
+							<h5 class="font-weight-bold">Written by {{ author.name }}</h5>
+							{{ author.bio }}
+						</div>
 					</div>
-					<div class="col-md-10">
-                        <h5 class="font-weight-bold">Written by {{ author.name }}</h5>
-						{{ author.bio }}					
-					</div>
-				</div>				
+				{% endif %}
                 {% endif %}
-            
-            <!-- Comments -->
-            {% if page.comments != false %}
-                {% include comments.html %}
-            {% endif %}
-            
+
 		</div>
         
         

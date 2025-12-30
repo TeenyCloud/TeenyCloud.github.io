@@ -16,7 +16,10 @@ services:
       - BUNDLE_PATH=/usr/local/bundle
       # Skip bundle install if gems are already installed
       - BUNDLE_APP_CONFIG=/usr/local/bundle
-    command: jekyll serve --livereload --incremental --watch
+    # Removed --incremental flag: it only rebuilds changed files, missing pages that depend
+    # on post metadata (index.html, category pages, etc.). Full rebuilds are fast enough.
+    # command: jekyll serve --livereload --incremental --watch
+    command: jekyll serve --livereload --watch
 
 volumes:
   jekyll-vendor:

@@ -33,6 +33,13 @@ defaults:
       author: polo
       # avatar: assets/images/avatar.png
 
+  # all drafts
+  - scope:
+      path: "_drafts"
+    values:
+      layout: post
+      author: polo
+
   # all pages
   - scope:
       path: "_pages"

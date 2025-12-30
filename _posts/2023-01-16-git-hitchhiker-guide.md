@@ -1,12 +1,13 @@
 ---
-layout: post
 title: "Git: a hitchhiker guide"
 description: "A guide to git"
 category: Git
 tags: [featured]
-comments: true
 image: assets/images/yancy-min-842ofHC6MaI-unsplash.jpg
-image-credit: <span>Photo by <a href="https://unsplash.com/@yancymin?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Yancy Min</a> on <a href="https://unsplash.com/s/photos/git?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+image-author: Yancy Min
+image-author-link: https://unsplash.com/@yancymin
+image-site: Unsplash
+image-site-link: https://unsplash.com/s/photos/git
 ---
 
 My very first experience with distributed version control system (DVCS) was with Bazaar (bzr) in late 2006. I only used it for a couple of weeks but it got me interested in DVCS and in 2007, I tried both Git and Mercurial.
