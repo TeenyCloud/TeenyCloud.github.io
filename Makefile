@@ -4,6 +4,7 @@
 
 help:
 	@echo "Development commands (all run in Docker container):"
+	@echo "  'make setup'         - setup the blog environment. Calls build and then update. (first time only)"
 	@echo "  'make build'         - build the Docker image with tools (first time only)"
 	@echo "  'make serve'         - build and serve the website in container"
 	@echo "  'make serve-drafts'  - serve the website with drafts in container"
@@ -21,15 +22,18 @@ update:
 	@echo "Updating gem dependencies..."
 	docker-compose run --rm jekyll bundle update
 
+setup: build update
+	@echo "✨ Blog environment is fully prepared and ready to go!"
+
 serve:
 	@echo "Starting Jekyll server in container..."
 	@echo "Site will be available at http://localhost:4000"
-	docker-compose run --rm --service-ports jekyll
+	docker-compose run --rm --service-ports jekyll bundle exec jekyll serve --host 0.0.0.0 --livereload --incremental --watch
 
 serve-drafts:
 	@echo "Starting Jekyll server with drafts in container..."
 	@echo "Site will be available at http://localhost:4000"
-	docker-compose run --rm --service-ports jekyll jekyll serve --host 0.0.0.0 --livereload --incremental --watch --drafts
+	docker-compose run --rm --service-ports jekyll bundle exec jekyll serve --host 0.0.0.0 --livereload --incremental --watch --drafts
 
 shell:
 	@echo "Opening shell in Jekyll container..."
